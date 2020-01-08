@@ -6,27 +6,36 @@ import {
   Link
 } from 'react-router-dom';
 
+import {IntlProvider, FormattedMessage} from 'react-intl';
+
 import Backup from './containers/Backup';
 import Recover from './containers/Recover';
+
+const messages = {
+  'menubackup': 'Backup',
+  'menurecover': 'Recover',
+};
 
 const App: React.FC = () => {
   return (
     <Router>
-      <ul>
-        <li><Link to="/">Backup</Link></li>
-        <li><Link to="/recover">Recover</Link></li>
-      </ul>
+      <IntlProvider locale="en" messages={messages}>
+        <ul>
+          <li><Link to="/"><FormattedMessage id="menu.backup" defaultMessage="Backup" /></Link></li>
+          <li><Link to="/recover"><FormattedMessage id="menu.recover" defaultMessage="Recover" /></Link></li>
+        </ul>
 
-      <hr />
+        <hr />
 
-      <Switch>
-        <Route exact path="/">
-          <Backup />
-        </Route>
-        <Route path="/recover">
-          <Recover />
-        </Route>
-      </Switch>
+        <Switch>
+          <Route exact path="/">
+            <Backup />
+          </Route>
+          <Route path="/recover">
+            <Recover />
+          </Route>
+        </Switch>
+      </IntlProvider>
     </Router>
   );
 }
