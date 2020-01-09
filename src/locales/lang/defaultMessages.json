@@ -1,0 +1,15 @@
+[
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "Backup",
+        "id": "menu.backup"
+      },
+      {
+        "defaultMessage": "Recover",
+        "id": "menu.recover"
+      }
+    ],
+    "path": "src/App.json"
+  }
+]
