@@ -1,4 +1,4 @@
 {
-  "menu.backup": "Backup",
-  "menu.recover": "Recover"
+  "app.menu.backup": "Backup",
+  "app.menu.recover": "Recover"
 }

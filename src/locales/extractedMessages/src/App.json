@@ -1,10 +1,10 @@
 [
   {
-    "id": "menu.backup",
+    "id": "app.menu.backup",
     "defaultMessage": "Backup"
   },
   {
-    "id": "menu.recover",
+    "id": "app.menu.recover",
     "defaultMessage": "Recover"
   }
 ]
