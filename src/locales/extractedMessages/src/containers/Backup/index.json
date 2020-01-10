@@ -1,0 +1,14 @@
+[
+  {
+    "id": "backup.title",
+    "defaultMessage": "Backup"
+  },
+  {
+    "id": "backup.from.seed_phrase.label",
+    "defaultMessage": "Seed phrase"
+  },
+  {
+    "id": "backup.from.shares.label",
+    "defaultMessage": "Shares"
+  }
+]

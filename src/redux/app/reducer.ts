@@ -26,6 +26,8 @@ export default function(state: AppState = initialState, action: any) {
       return { ...state, shares: [] };
     case actions.SET_SHARES:
       return { ...state, shares: action.payload.shares };
+    case actions.RECOVER_SECRET:
+      return { ...state, secret: '' };
     default:
       return state;
   }

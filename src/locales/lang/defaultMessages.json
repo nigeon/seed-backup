@@ -11,5 +11,31 @@
       }
     ],
     "path": "src/App.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "Backup",
+        "id": "backup.title"
+      },
+      {
+        "defaultMessage": "Seed phrase",
+        "id": "backup.from.seed_phrase.label"
+      },
+      {
+        "defaultMessage": "Shares",
+        "id": "backup.from.shares.label"
+      }
+    ],
+    "path": "src/containers/Backup/index.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "Recover",
+        "id": "recover.title"
+      }
+    ],
+    "path": "src/containers/Recover/index.json"
   }
 ]

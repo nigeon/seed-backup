@@ -31,6 +31,8 @@ const actions = {
   },
 
   SET_SHARES: 'SET_SHARES',
+
+  RECOVER_SECRET: 'RECOVER_SECRET',
 };
 
 export default actions;

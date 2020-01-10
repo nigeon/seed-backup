@@ -1,4 +1,8 @@
 {
   "app.menu.backup": "Backup",
-  "app.menu.recover": "Recover"
+  "app.menu.recover": "Recover",
+  "backup.from.seed_phrase.label": "Seed phrase",
+  "backup.from.shares.label": "Shares",
+  "backup.title": "Backup",
+  "recover.title": "Recover"
 }

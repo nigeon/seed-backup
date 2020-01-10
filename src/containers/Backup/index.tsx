@@ -4,6 +4,7 @@ import appActions from '../../redux/app/actions'
 
 import { FormattedMessage } from "react-intl";
 import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup'
 
 class Backup extends React.Component<any,any> {
   backup = (e:any) => {
@@ -23,10 +24,10 @@ class Backup extends React.Component<any,any> {
 
           {this.props.app.shares.length > 0 && 
             <Form.Group>
-              <Form.Label><FormattedMessage id="backup.from.shares.label" defaultMessage="Seed Shares" /></Form.Label>
+              <Form.Label><FormattedMessage id="backup.from.shares.label" defaultMessage="Shares" /></Form.Label>
 
               {this.props.app.shares.map((s: any, i: number) => {
-                return <Form.Control type="input" key={i} value={s} readOnly={true} />
+                return <InputGroup className="mb-3" key={i}><Form.Control type="input" value={s.toString('hex')} readOnly={true} /></InputGroup>
               })}
             </Form.Group>
           }

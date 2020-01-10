@@ -31,7 +31,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "translations:extract": "./node_modules/@formatjs/cli/bin/formatjs extract --messages-dir ./src/locales/extractedMessages src/**.tsx && node ./translationRunner.js"
+    "translations:extract": "./node_modules/@formatjs/cli/bin/formatjs extract --messages-dir ./src/locales/extractedMessages src/**/**.tsx && node ./translationRunner.js"
   },
   "eslintConfig": {
     "extends": "react-app"
