@@ -2,29 +2,34 @@ import React from "react";
 import { connect } from 'react-redux';
 import appActions from '../../redux/app/actions'
 
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import { FormattedMessage } from "react-intl";
+import Form from 'react-bootstrap/Form';
 
 class Backup extends React.Component<any,any> {
-  backup = () => {
-    this.props.dispatch(appActions.sayHello());
+  backup = (e:any) => {
+    this.props.dispatch(appActions.setSecret(e.target.value));
   }
 
   render() {
-    console.log('Hello is:', this.props.app.hello);
+    console.log('PROPS: ', this.props);
     return (
       <div>
         <h1><FormattedMessage id="backup.title" defaultMessage="Backup" /></h1>
         <Form>
-          <Form.Group controlId="formBasicEmail">
+          <Form.Group>
             <Form.Label><FormattedMessage id="backup.from.seed_phrase.label" defaultMessage="Seed phrase" /></Form.Label>
-            <Form.Control type="password" />
+            <Form.Control type="password" onChange={this.backup} />
           </Form.Group>
 
-          <Button variant="primary" onClick={this.backup}>
-            <FormattedMessage id="backup.from.submit" defaultMessage="Backup" />
-          </Button>
+          {this.props.app.shares.length > 0 && 
+            <Form.Group>
+              <Form.Label><FormattedMessage id="backup.from.shares.label" defaultMessage="Seed Shares" /></Form.Label>
+
+              {this.props.app.shares.map((s: any, i: number) => {
+                return <Form.Control type="input" key={i} value={new TextDecoder("utf-8").decode(s)} readOnly={true} />
+              })}
+            </Form.Group>
+          }
         </Form>
       </div>
     );
