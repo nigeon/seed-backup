@@ -26,7 +26,7 @@ class Backup extends React.Component<any,any> {
               <Form.Label><FormattedMessage id="backup.from.shares.label" defaultMessage="Seed Shares" /></Form.Label>
 
               {this.props.app.shares.map((s: any, i: number) => {
-                return <Form.Control type="input" key={i} value={new TextDecoder("utf-8").decode(s)} readOnly={true} />
+                return <Form.Control type="input" key={i} value={s} readOnly={true} />
               })}
             </Form.Group>
           }
