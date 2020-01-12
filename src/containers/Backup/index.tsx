@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux';
+
 import appActions from '../../redux/app/actions'
 
 import { FormattedMessage } from "react-intl";
@@ -10,6 +11,10 @@ import Row from "react-bootstrap/Row";
 
 
 class Backup extends React.Component<any,any> {
+  componentDidMount = () => {
+    this.props.dispatch(appActions.resetAppState());
+  }
+
   onChangeSecret = (e:any) => {
     this.props.dispatch(appActions.setSecret(e.target.value));
   }
@@ -30,8 +35,8 @@ class Backup extends React.Component<any,any> {
           <Row>
             <Col>
               <Form.Group>
-                <Form.Label><FormattedMessage id="backup.from.seed_phrase.label" defaultMessage="Seed phrase" /></Form.Label>
-                <Form.Control type="password" onChange={this.onChangeSecret} />
+                <Form.Label><FormattedMessage id="backup.form.seed_phrase.label" defaultMessage="Seed phrase" /></Form.Label>
+                <Form.Control type="password" onChange={this.onChangeSecret} value={this.props.app.secret} />
               </Form.Group>
             </Col>
           </Row>
@@ -39,14 +44,14 @@ class Backup extends React.Component<any,any> {
           <Row>
             <Col>
               <Form.Group>
-                <Form.Label><FormattedMessage id="backup.from.shares_amount.label" defaultMessage="Shares amount:" /></Form.Label> {this.props.app.sharesNumber}
-                <Form.Control type="range" min="2" max="20" value={this.props.app.sharesNumber} onChange={this.onChangeSharesAmount}  />
+                <Form.Label><FormattedMessage id="backup.form.shares_amount.label" defaultMessage="Shares amount:" /></Form.Label> {this.props.app.sharesNumber}
+                <Form.Control type="range" min="2" max="20" value={this.props.app.sharesNumber} onChange={this.onChangeSharesAmount} />
               </Form.Group>
             </Col>
             <Col>
               <Form.Group>
-                <Form.Label><FormattedMessage id="backup.from.threshold_amount.label" defaultMessage="Threshold amount:" /></Form.Label> {this.props.app.thresholdNumber}
-                <Form.Control type="range" min="2" max={this.props.app.sharesNumber} value={this.props.app.thresholdNumber} onChange={this.onChangeThresholdAmount}  />
+                <Form.Label><FormattedMessage id="backup.form.threshold_amount.label" defaultMessage="Threshold amount:" /></Form.Label> {this.props.app.thresholdNumber}
+                <Form.Control type="range" min="2" max={this.props.app.sharesNumber} value={this.props.app.thresholdNumber} onChange={this.onChangeThresholdAmount} />
               </Form.Group>
             </Col>
           </Row>
@@ -55,7 +60,7 @@ class Backup extends React.Component<any,any> {
             <Row>
               <Col>
                 <Form.Group>
-                  <Form.Label><FormattedMessage id="backup.from.shares.label" defaultMessage="Shares" /></Form.Label>
+                  <Form.Label><FormattedMessage id="backup.form.shares.label" defaultMessage="Shares" /></Form.Label>
 
                   {this.props.app.shares.map((s: any, i: number) => {
                     return <InputGroup className="mb-3" key={i}><Form.Control type="input" value={s.toString('hex')} readOnly={true} /></InputGroup>

@@ -33,7 +33,7 @@ export function* generateShares() {
 
     const shares = sss.split(appState.secret, { shares: appState.sharesNumber, threshold: appState.thresholdNumber })
     
-    yield put({ type: actions.SET_SHARES, payload: { shares } });
+    yield put({ type: actions.SET_SHARES, shares });
   });
 }
 
@@ -41,9 +41,12 @@ export function* recoverSecret() {
   yield takeLatest(actions.RECOVER_SECRET, function*(){
     const appState: AppState = yield select(getAppState);
 
-    const recovered = sss.combine(appState.shares);
-    
-    yield put(actions.setSecret(recovered.toString()));    
+    if(appState.shares.length >= 2){
+      const recovered = sss.combine(appState.shares);
+      if(recovered){
+        yield put(actions.setSecret(recovered.toString()));
+      }
+    }
   });
 }
 

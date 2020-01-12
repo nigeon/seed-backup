@@ -1,4 +1,7 @@
 const actions = {
+  RESET_APP_STATE: 'RESET_APP_STATE',
+  resetAppState: () => ({ type: actions.RESET_APP_STATE }),
+
   SET_SECRET: 'SET_SECRET',
   setSecret: (secret: string) => {
     return {
@@ -31,8 +34,15 @@ const actions = {
   },
 
   SET_SHARES: 'SET_SHARES',
+  setShares: (shares: string[]) => {
+    return {
+      type: actions.SET_SHARES,
+      shares,
+    }
+  },
 
   RECOVER_SECRET: 'RECOVER_SECRET',
+  recoverSecret: () => ({ type: actions.RECOVER_SECRET }),
 };
 
 export default actions;
