@@ -1,6 +1,7 @@
 ## Seed Backup tool
 So, this simple tool allows you to backup and recover any secret using https://github.com/jwerle/shamirs-secret-sharing
 
+See it working: https://seed-backup.netlify.com/
 
 ### Available Scripts
 
